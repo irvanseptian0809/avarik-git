@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import SearchUser from "Pages/SearchUser"
+import DetailUser from "Pages/DetailUser"
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (<SearchUser />),
+  },
+  {
+    path: "/detail-user",
+    element: (<DetailUser />),
+  }
+])
+
+export default function App() {
+  return <RouterProvider router={router} />
 }
-
-export default App;
