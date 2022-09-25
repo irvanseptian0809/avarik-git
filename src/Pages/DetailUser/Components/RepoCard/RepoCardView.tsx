@@ -30,7 +30,7 @@ const RepoCardView = ({
   return(
     <Box className="mb-13">
       <div className="repo-card-component">
-        <img src={image} />
+        <img src={image} alt="Image User Detail"/>
         <div>
           <div className="repo-owner">{owner}</div>
           <div className="repo-title">{name}<Label>{visibility}</Label></div>
