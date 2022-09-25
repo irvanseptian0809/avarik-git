@@ -1,6 +1,5 @@
 import { ofType } from 'redux-observable'
-import { of, map } from 'rxjs'
-import { mergeMap, catchError } from 'rxjs/operators'
+import { mergeMap } from 'rxjs/operators'
 
 import {
   USER_DETAILS,
@@ -13,7 +12,7 @@ export function userDetailsFetchEpic(action$: any, state$: any, { api }: any) {
     ofType(USER_DETAILS),
     mergeMap( async () => {
       try {
-        const result = await api(`/users/${`Mr-vero`}/repos`)
+        const result = await api(`/users/${state$.value.UserDetails.login}/repos`)
         return userDetailsFetchSuccess(result.data)
       } catch {
         return userDetailsFetchFailed('Failed Fetching Data')

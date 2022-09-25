@@ -1,0 +1,9 @@
+@import "Assets/Styles/app";
+
+.box-component {
+  width: 100%;
+  border: 1px solid $black-600;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 8px;
+}

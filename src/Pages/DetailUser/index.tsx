@@ -1,1 +1,1 @@
-export { default } from "./DetailUserView"
+export { default } from "./DetailUserContainer"

@@ -1,0 +1,11 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+
+  .col {
+    flex-basis: 0;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    max-width: 100%;
+  }
+}

@@ -11,14 +11,16 @@ export interface interfaceUser {
   html_url?: string,
 }
 
+export interface interfacePagination {
+  keyword: string,
+  per_page?: number,
+  page?: number,
+  total?: number,
+}
+
 export interface interfaceUserLists {
   data: interfaceUser[],
-  pagination: {
-    keyword: string,
-    per_page: number,
-    page: number,
-    total: number,
-  }
+  pagination: interfacePagination,
   isLoading: boolean,
   isError: boolean,
   errorMessage: string,
@@ -38,9 +40,13 @@ export const INITIAL_STATE: interfaceUserLists = {
 }
 
 const reducer = createReducer(INITIAL_STATE, {
-  [USER_LISTS]: (state: any) => ({
+  [USER_LISTS]: (state: any, payload: interfacePagination) => ({
     ...state,
     isLoading: true,
+    pagination: {
+      ...state.pagination,
+      ...payload,
+    }
   }),
   [USER_LISTS_SUCCESS]: (state: any, payload: any) => ({
     ...state,
@@ -60,8 +66,9 @@ const reducer = createReducer(INITIAL_STATE, {
   })
 })
 
-export const userListsFetch = () => ({
+export const userListsFetch = (payload: any) => ({
   type: USER_LISTS,
+  payload,
 })
 export const userListsFetchSuccess = (payload: any) => ({
   type: USER_LISTS_SUCCESS,

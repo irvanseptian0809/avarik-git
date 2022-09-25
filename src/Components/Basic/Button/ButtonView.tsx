@@ -1,4 +1,3 @@
-import { Children } from "react"
 import "./styles.scss"
 
 interface interfaceInputView {

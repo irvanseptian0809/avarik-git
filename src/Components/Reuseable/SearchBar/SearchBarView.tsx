@@ -9,12 +9,14 @@ import "./styles.scss"
 // TYPES
 interface interfaceSearchBarView {
   onChange: (payload: string) => void,
+  onClick: () => void,
   value: string | number,
   placeholder?: string,
 }
 
 const SearchBarView = ({
   onChange,
+  onClick,
   value,
   placeholder,
 }: interfaceSearchBarView) => {
@@ -29,9 +31,7 @@ const SearchBarView = ({
           />
         </div>
         <div>
-          <Button
-            onClick={() => {}}
-          >
+          <Button onClick={onClick}>
             Search
           </Button>
         </div>

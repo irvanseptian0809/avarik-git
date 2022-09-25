@@ -1,6 +1,5 @@
 import { ofType } from 'redux-observable'
-import { of, map } from 'rxjs'
-import { mergeMap, catchError } from 'rxjs/operators'
+import { mergeMap } from 'rxjs/operators'
 
 import {
   USER_LISTS,
