@@ -1,19 +1,24 @@
+// Core
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom"
 
+// Component Layout
+import Main from "Components/Layouts/Main"
+
+// Pages
 import SearchUser from "Pages/SearchUser"
 import DetailUser from "Pages/DetailUser"
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (<SearchUser />),
+    element: (<Main><SearchUser /></Main>),
   },
   {
     path: "/detail-user",
-    element: (<DetailUser />),
+    element: (<Main><DetailUser /></Main>),
   }
 ])
 
