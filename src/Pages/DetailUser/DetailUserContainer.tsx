@@ -21,7 +21,7 @@ const SearchUserContainer = () => {
 
   useEffect(() => {
     dispatch(userDetailsFetch(login || ""))
-  },[login])
+  },[login, dispatch])
 
   const handleSubmitSearch = () => {
     dispatch(userListsFetch({ keyword }))
@@ -30,9 +30,10 @@ const SearchUserContainer = () => {
 
   const props = {
     keyword,
+    data: state.data,
+    isLoading: state.isLoading,
     setKeyword,
     handleSubmitSearch,
-    data: state.data,
   }
 
   return <SearchUserView {...props} />

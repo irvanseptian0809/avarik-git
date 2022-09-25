@@ -1,7 +1,7 @@
 import { Octokit } from "octokit";
 
 const octokit = new Octokit({
-  auth: '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'
+  auth: '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'
 })
 
 export default function api(path: string, query: any) {

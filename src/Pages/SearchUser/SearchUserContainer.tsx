@@ -35,6 +35,7 @@ const SearchUserContainer = () => {
     keyword,
     data: state.data,
     total: state.pagination.total,
+    isLoading: state.isLoading,
     setKeyword,
     handleSubmitSearch,
     handleLoadMore,

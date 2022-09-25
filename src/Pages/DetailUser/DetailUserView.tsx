@@ -1,6 +1,8 @@
 // COMPONENTS
 import SearchBar from "Components/Reuseable/SearchBar"
 import EmptyData from "Components/Reuseable/EmptyData"
+import Loading from "Components/Reuseable/Loading"
+
 import RepoCard from "./Components/RepoCard"
 
 // STYLES
@@ -8,16 +10,18 @@ import "./styles.scss"
 
 interface interfaceDetailUserView {
   keyword: string,
+  data?: any;
+  isLoading?: boolean,
   setKeyword: (payload: string) => void,
   handleSubmitSearch: () => void,
-  data?: any;
 }
 
 function DetailUserView({
   keyword,
+  data,
+  isLoading,
   setKeyword,
   handleSubmitSearch,
-  data,
 }: interfaceDetailUserView) {
   return (
     <>
@@ -28,7 +32,10 @@ function DetailUserView({
         placeholder="Search User"
       />
       <div className="detail-user">
-        {data.length == 0 ? (
+        {isLoading && (
+          <Loading />
+        )}
+        {!isLoading && data.length === 0 ? (
           <EmptyData />
         ) : (
           data.map((item: any, index: number) => (

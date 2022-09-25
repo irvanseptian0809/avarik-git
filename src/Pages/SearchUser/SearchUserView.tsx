@@ -2,6 +2,7 @@
 import Button from "Components/Basic/Button"
 import SearchBar from "Components/Reuseable/SearchBar"
 import EmptyData from "Components/Reuseable/EmptyData"
+import Loading from "Components/Reuseable/Loading"
 
 import UserCard from "./Components/UserCard"
 
@@ -15,6 +16,7 @@ interface interfaceSearchUserView {
   keyword: string,
   data?: interfaceUser[];
   total?: number,
+  isLoading?: boolean,
   setKeyword: (payload: string) => void,
   handleSubmitSearch: () => void,
   handleLoadMore: () => void,
@@ -24,6 +26,7 @@ function SearchUserView({
   keyword,
   data = [],
   total,
+  isLoading,
   setKeyword,
   handleSubmitSearch,
   handleLoadMore,
@@ -38,7 +41,10 @@ function SearchUserView({
       />
       <div className="search-result">
         <p>Total Result: {total}</p>
-        {data.length === 0 ? (
+        {isLoading && (
+          <Loading />
+        )}
+        {!isLoading && data.length === 0 ? (
           <EmptyData />
         ) : (
           <>
@@ -50,9 +56,11 @@ function SearchUserView({
               />
             ))}
 
-            <div className="load-more">
-              <Button onClick={handleLoadMore}>Load More</Button>
-            </div>
+            {total !== data.length && (
+              <div className="load-more">
+                <Button onClick={handleLoadMore}>Load More</Button>
+              </div>
+            )}
           </>
         )}
       </div>
