@@ -1,0 +1,14 @@
+@import "Assets/Styles/app";
+
+.button-component {
+  padding: 10px 20px;
+  cursor: pointer;
+  background: $black;
+  border: 2px solid $black-600;
+  border-radius: 5px;
+  color: white;
+
+  &:hover {
+    background: $black-900;
+  }
+}

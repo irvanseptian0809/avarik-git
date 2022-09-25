@@ -1,1 +1,1 @@
-export { default } from "./SearchUserView"
+export { default } from "./SearchUserContainer"

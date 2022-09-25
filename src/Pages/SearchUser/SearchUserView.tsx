@@ -1,17 +1,29 @@
-import { useDispatch } from "react-redux"
+// COMPONENTS
+import SearchBar from "Components/Reuseable/SearchBar"
 
-import { userListsFetch } from "ReduxStore/Ducks/UserLists"
-import { userDetailsFetch } from "ReduxStore/Ducks/UserDetails"
+// IMAGE / ICON
+import { ReactComponent as LogoIcon } from "Assets/Images/logo.svg"
 
-function SearchUserView() {
-  const dispatch = useDispatch();
+interface interfaceSearchUserView {
+  keyword: string,
+  setKeyword: (payload: string) => void,
+}
 
-  dispatch(userListsFetch())
-  dispatch(userDetailsFetch())
-  
+function SearchUserView({
+  keyword,
+  setKeyword,
+}: interfaceSearchUserView) {
   return (
     <>
-      <p>Search User Page</p>
+      <div>
+        <LogoIcon />
+      </div>
+      <SearchBar
+        value={keyword}
+        onChange={setKeyword}
+        placeholder="Search User"
+      />
+      <p>{keyword}</p>
     </>
   )
 }

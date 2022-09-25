@@ -1,0 +1,17 @@
+@import "Assets/Styles/app";
+
+.search-bar-component {
+  width: 100%;
+  display: table;
+
+  div {
+    display: table-cell;
+    width: 100%;
+
+    &:last-child {
+      button {
+        margin-left: 20px;
+      }
+    }
+  }
+}

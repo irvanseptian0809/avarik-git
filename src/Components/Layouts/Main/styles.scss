@@ -1,0 +1,12 @@
+.main-layout-container {
+  width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+@media screen and (max-width: 800px) {
+  .main-layout-container {
+    width: 100%;
+    padding: 20px;
+  }
+}

@@ -1,0 +1,16 @@
+@import "Assets/Styles/app";
+
+.input-component {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid $black-600;
+  border-radius: 5px;
+  background: $black-800;
+  color: $white;
+  font-size: 16px;
+  box-sizing: border-box;
+  
+  &:active {
+    border: 2px solid $black-600;
+  }
+}
