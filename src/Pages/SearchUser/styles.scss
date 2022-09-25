@@ -1,4 +1,13 @@
+@import "Assets/Styles/app";
 
 .search-result {
   margin-top: 50px;
+
+  p {
+    color: $white;
+  }
+
+  .load-more {
+    text-align: center;
+  }
 }

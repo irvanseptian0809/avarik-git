@@ -1,4 +1,5 @@
 // COMPONENTS
+import Button from "Components/Basic/Button"
 import SearchBar from "Components/Reuseable/SearchBar"
 import EmptyData from "Components/Reuseable/EmptyData"
 
@@ -12,16 +13,20 @@ import { interfaceUser } from "ReduxStore/Ducks/UserLists"
 
 interface interfaceSearchUserView {
   keyword: string,
+  data?: interfaceUser[];
+  total?: number,
   setKeyword: (payload: string) => void,
   handleSubmitSearch: () => void,
-  data?: interfaceUser[];
+  handleLoadMore: () => void,
 }
 
 function SearchUserView({
   keyword,
+  data = [],
+  total,
   setKeyword,
   handleSubmitSearch,
-  data = [],
+  handleLoadMore,
 }: interfaceSearchUserView) {
   return (
     <>
@@ -32,16 +37,23 @@ function SearchUserView({
         placeholder="Search User"
       />
       <div className="search-result">
+        <p>Total Result: {total}</p>
         {data.length === 0 ? (
           <EmptyData />
         ) : (
-          data.map((item: interfaceUser, index: number) => (
-            <UserCard
-              key={index}
-              name={item.login}
-              image={item.avatar_url}
-            />
-          ))
+          <>
+            {data.map((item: interfaceUser, index: number) => (
+              <UserCard
+                key={index}
+                name={item.login}
+                image={item.avatar_url}
+              />
+            ))}
+
+            <div className="load-more">
+              <Button onClick={handleLoadMore}>Load More</Button>
+            </div>
+          </>
         )}
       </div>
     </>

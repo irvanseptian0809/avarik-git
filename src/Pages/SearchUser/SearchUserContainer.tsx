@@ -18,17 +18,26 @@ const SearchUserContainer = () => {
     if (state.data.length === 0) {
       dispatch(userListsFetch({ keyword: "irvanseptian0809" }))
     }
-  },[state, dispatch])
+  },[state.data, dispatch])
 
   const handleSubmitSearch = () => {
     dispatch(userListsFetch({ keyword }))
   }
 
+  const handleLoadMore = () => {
+    dispatch(userListsFetch({
+      keyword,
+      page: state.pagination.page + 1,
+    }))
+  }
+
   const props = {
     keyword,
+    data: state.data,
+    total: state.pagination.total,
     setKeyword,
     handleSubmitSearch,
-    data: state.data,
+    handleLoadMore,
   }
 
   return <SearchUserView {...props} />

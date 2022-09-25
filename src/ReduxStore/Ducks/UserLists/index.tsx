@@ -45,6 +45,7 @@ const reducer = createReducer(INITIAL_STATE, {
     isLoading: true,
     pagination: {
       ...state.pagination,
+      page: 1,
       ...payload,
     }
   }),
@@ -52,7 +53,7 @@ const reducer = createReducer(INITIAL_STATE, {
     ...state,
     isLoading: false,
     isError: false,
-    data: payload.items,
+    data: state.pagination.page === 1 ? payload.items : [...state.data, ...payload.items],
     pagination: {
       ...state.pagination,
       total: payload.total_count,
