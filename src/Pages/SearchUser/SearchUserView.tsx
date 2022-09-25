@@ -44,7 +44,7 @@ function SearchUserView({
         {isLoading && (
           <Loading />
         )}
-        {!isLoading && data.length === 0 ? (
+        {!isLoading && (data.length === 0 ? (
           <EmptyData />
         ) : (
           <>
@@ -62,7 +62,7 @@ function SearchUserView({
               </div>
             )}
           </>
-        )}
+        ))}
       </div>
     </>
   )

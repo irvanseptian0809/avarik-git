@@ -15,10 +15,8 @@ const SearchUserContainer = () => {
   const [keyword, setKeyword] = useState("")
 
   useEffect(() => {
-    if (state.data.length === 0) {
-      dispatch(userListsFetch({ keyword: "irvanseptian0809" }))
-    }
-  },[state.data, dispatch])
+    dispatch(userListsFetch({ keyword: "irvanseptian0809" }))
+  },[dispatch])
 
   const handleSubmitSearch = () => {
     dispatch(userListsFetch({ keyword }))
