@@ -13,7 +13,6 @@ export function userListsFetchEpic(action$: any, state$: any, { api }: any) {
     mergeMap( async () => {
       try {
         const { keyword, per_page, page } = state$.value.UserLists.pagination;
-        console.log(state$)
         const result = await api( '/search/users',
           {
             q: keyword,
